@@ -67,4 +67,13 @@ class UserController extends BaseController
 
         return redirect('users');
     }
+
+    public function destroy($id)
+    {
+        $userModel = new UserModel;
+
+        $userModel->delete($id);
+
+        return redirect('users');
+    }
 }
