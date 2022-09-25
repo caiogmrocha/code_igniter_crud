@@ -7,7 +7,7 @@ main {
 <main>
     <h1>Cadastro de Usuário</h1>
 
-    <form method="POST" action="<?= base_url('store') ?>">
+    <form method="POST" action="<?= base_url('users/store') ?>">
         <fieldset>
             <label>Name</label>
             <input type="text" name="name">

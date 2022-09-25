@@ -39,4 +39,32 @@ class UserController extends BaseController
 
         return redirect('create');
     }
+
+    public function edit($id)
+    {
+        $userModel = new UserModel;
+
+        $user = $userModel->find($id);
+
+        $data = [
+            'user' => $user
+        ];
+
+        echo view('templates/header');
+        echo view('pages/edit', $data);
+        echo view('templates/footer');
+    }
+
+    public function update($id)
+    {
+        $userModel = new UserModel;
+
+        $userModel->update($id, [
+            'name' => $this->request->getVar('name'),
+            'email' => $this->request->getVar('email'),
+            'password' => $this->request->getVar('password'),
+        ]);
+
+        return redirect('users');
+    }
 }
